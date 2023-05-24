@@ -13,11 +13,12 @@ export const SectionTitle = styled.h2`
   font-size: 30px;
   font-weight: 600;
   text-align: center;
+  color: grey;
 `;
 
 export const List = styled.ul`
   list-style: disc;
-  color: #0d57aa;
+  color: teal;
 `;
 
 export const ListItem = styled.li`
@@ -28,12 +29,12 @@ export const ListItem = styled.li`
 
 export const StyledLink = styled(Link)`
   font-size: 20px;
-  color: #0d57aa;
+  color: teal;
   transition: color 0.2s ease-in-out, border-bottom 0.2s ease-in-out;
 
   &:hover,
   &:focus {
-    color: #1c85ff;
-    border-bottom: 2px solid #1c85ff;
+    color: blue;
+    border-bottom: 2px solid blue;
   }
 `;
