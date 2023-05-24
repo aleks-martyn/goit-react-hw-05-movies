@@ -7,6 +7,8 @@ import {
   MovieSubTitle,
   MovieText,
   MoreInfoWrap,
+  LinksList,
+  ListItem,
   StyledLink,
 } from './MovieCard.styled';
 
@@ -52,24 +54,24 @@ const MovieCard = ({ movie }) => {
 
       <MoreInfoWrap>
         <MovieSubTitle>Additional information</MovieSubTitle>
-        <ul>
-          <li>
+        <LinksList>
+          <ListItem>
             <StyledLink
               to="cast"
               state={{ from: location?.state?.from ?? '/' }}
             >
               Cast
             </StyledLink>
-          </li>
-          <li>
+          </ListItem>
+          <ListItem>
             <StyledLink
               to="reviews"
               state={{ from: location?.state?.from ?? '/' }}
             >
               Reviews
             </StyledLink>
-          </li>
-        </ul>
+          </ListItem>
+        </LinksList>
       </MoreInfoWrap>
     </>
   );
