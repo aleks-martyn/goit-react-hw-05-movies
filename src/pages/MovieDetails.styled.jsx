@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  padding: 20px 40px;
+  padding: 20px 35px;
 `;
 
 export const Button = styled.button`
@@ -9,13 +9,13 @@ export const Button = styled.button`
   align-items: center;
   font-size: 14px;
   border: 1px solid #0d57aa;
-  border-radius: 6px;
+  border-radius: 3px;
   background-color: #b5d1f2;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
   &:hover,
   &:focus {
     background-color: #0d57aa;
-    color: #ffffff;
+    color: #fff;
   }
 `;
