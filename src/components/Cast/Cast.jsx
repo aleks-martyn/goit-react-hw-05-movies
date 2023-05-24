@@ -23,21 +23,21 @@ const Cast = () => {
     <div>
       <h3>Cast</h3>
       <ul>
-        {cast.map(actor => (
-          <li key={actor.id}>
-            {actor.profile_path ? (
+        {cast.map(({ id, profile_path, name }) => (
+          <li key={id}>
+            {profile_path ? (
               <img
-                src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
-                alt={`${actor.name} profile`}
+                src={`https://image.tmdb.org/t/p/w200${profile_path}`}
+                alt={`${name} profile`}
               />
             ) : (
               <img
                 src={`https://via.placeholder.com/200x300?text=No+Image`}
-                alt={`${actor.name} profile`}
+                alt={`${name} profile`}
               />
             )}
             <div>
-              <h3>{actor.name}</h3>
+              <h3>{name}</h3>
               <p></p>
             </div>
           </li>
