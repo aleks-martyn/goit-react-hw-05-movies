@@ -1,6 +1,20 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
+export const MovieWrap = styled.div`
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+`;
+
+export const MoreInfoWrap = styled.div`
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
+`;
+
 export const StyledLink = styled(Link)`
   font-size: 16px;
   margin-right: 5px;
