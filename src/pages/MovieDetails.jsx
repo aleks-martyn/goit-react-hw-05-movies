@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useLocation, Link } from 'react-router-dom';
+import { useParams, Outlet, useLocation, Link } from 'react-router-dom';
 import { fetchMovieById } from 'services/api';
 import MovieCard from 'components/MovieCard/MovieCard';
 import { Container, Button } from './MovieDetails.styled';
@@ -30,6 +30,7 @@ const MovieDetails = () => {
         </Link>
 
         <MovieCard movie={selectedMovie} />
+        <Outlet />
       </Container>
     </main>
   );
