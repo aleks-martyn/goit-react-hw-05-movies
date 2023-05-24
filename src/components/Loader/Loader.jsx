@@ -1,5 +1,5 @@
 import { RotatingLines } from 'react-loader-spinner';
-import { Wrap } from './Loader.styled';
+import  Wrap  from './Loader.styled';
 
 const Spinner = () => (
   <Wrap role="alert">
