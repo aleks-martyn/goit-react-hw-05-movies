@@ -33,6 +33,19 @@ export const MoreInfoWrap = styled.div`
   border-bottom: 1px solid #d3d3d3;
 `;
 
+export const LinksList = styled.ul`
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+`;
+
+export const ListItem = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const StyledLink = styled(Link)`
   font-size: 16px;
   margin-right: 5px;
