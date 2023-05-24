@@ -24,10 +24,10 @@ const Reviews = () => {
       <h3>Reviews</h3>
       {reviews.length ? (
         <ul>
-          {reviews.map(review => (
-            <li key={review.id}>
-              <h4>Author: {review.author}</h4>
-              <p>{review.content}</p>
+          {reviews.map(({ id, author, content }) => (
+            <li key={id}>
+              <h4>Author: {author}</h4>
+              <p>{content}</p>
             </li>
           ))}
         </ul>
