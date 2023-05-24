@@ -1,0 +1,26 @@
+import styled from '@emotion/styled';
+
+export const Wrap = styled.div`
+  margin-top: 30px;
+  padding-right: 80px;
+  padding-left: 80px;
+  padding-bottom: 40px;
+`;
+
+export const CastTitle = styled.h3`
+  text-align: center;
+`;
+
+export const CastList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 30px;
+  align-items: center;
+`;
+
+export const CastListItem = styled.li`
+  width: calc((100% - 4 * 40px) / 5);
+  height: 400px;
+  word-break: break-word;
+`;
