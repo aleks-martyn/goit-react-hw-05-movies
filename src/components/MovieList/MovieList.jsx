@@ -1,20 +1,20 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { StyledSection, SectionTitle, List, ListItem, StyledLink } from './MovieList.styled';
 
 const MovieList = ({ trendingMovies }) => (
-  <section>
-    <h2>Trending today</h2>
-    <ul>
+  <StyledSection>
+    <SectionTitle>Trending today</SectionTitle>
+    <List>
       {trendingMovies &&
         trendingMovies.map(trendingMovie => (
-          <li key={trendingMovie.id}>
-            <Link to={`/movies/${trendingMovie.id}`}>
+          <ListItem key={trendingMovie.id}>
+            <StyledLink to={`/movies/${trendingMovie.id}`}>
               {trendingMovie.title}
-            </Link>
-          </li>
+            </StyledLink>
+          </ListItem>
         ))}
-    </ul>
-  </section>
+    </List>
+  </StyledSection>
 );
 
 export default MovieList;
@@ -24,10 +24,6 @@ MovieList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-      release_date: PropTypes.string.isRequired,
-      overview: PropTypes.string.isRequired,
-      poster_path: PropTypes.string,
-      vote_average: PropTypes.number.isRequired,
     })
   ).isRequired,
 };
