@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { StyledLink } from './MovieCard.styled';
+import {MovieWrap, MoreInfoWrap, StyledLink } from './MovieCard.styled';
 
 const MovieCard = ({ movie }) => {
   const { title, release_date, poster_path, vote_average, overview, genres } =
@@ -22,7 +22,7 @@ const MovieCard = ({ movie }) => {
 
   return (
     <>
-      <div>
+      <MovieWrap>
         <img src={posterUrl} alt={`${title}`} />
         <div>
           <h2>
@@ -38,9 +38,9 @@ const MovieCard = ({ movie }) => {
             </>
           )}
         </div>
-      </div>
+      </MovieWrap>
 
-      <div>
+      <MoreInfoWrap>
         <h3>Additional information</h3>
         <ul>
           <li>
@@ -60,7 +60,7 @@ const MovieCard = ({ movie }) => {
             </StyledLink>
           </li>
         </ul>
-      </div>
+      </MoreInfoWrap>
     </>
   );
 };
