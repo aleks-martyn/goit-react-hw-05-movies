@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { fetchTrendMovies } from 'services/api';
 import MovieList from 'components/MovieList/MovieList';
+import Spinner from 'components/Loader/Loader';
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -12,18 +13,24 @@ const Home = () => {
       try {
         setStatus('pending');
         const { results } = await fetchTrendMovies();
-          setTrendingMovies(results);
-          setStatus('resolved');
+        setTrendingMovies(results);
+        setStatus('resolved');
       } catch (error) {
-          setError(error);
-          setStatus('rejected');
-      } 
+        setError(error);
+        setStatus('rejected');
+      }
     };
 
     fetchTrendingMovies();
   }, []);
 
-  return <MovieList trendingMovies={trendingMovies} />;
+  return (
+    <>
+      {status === 'pending' && <Spinner />}
+      {status === 'rejected' && <h1>{error.message}</h1>}
+      {status === 'resolved' && <MovieList trendingMovies={trendingMovies} />}
+    </>
+  );
 };
 
 export default Home;
