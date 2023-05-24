@@ -26,7 +26,7 @@ const MovieDetails = () => {
     <main>
       <Container>
         <Link to={location?.state?.from ?? '/'}>
-          <Button type='button'>Go back</Button>
+          <Button type="button">Go back</Button>
         </Link>
 
         <MovieCard movie={selectedMovie} />
