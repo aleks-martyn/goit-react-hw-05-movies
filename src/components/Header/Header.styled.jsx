@@ -17,12 +17,12 @@ export const StyledNavLink = styled(NavLink)`
     margin-right: 30px;
   }
 
-  &.active,
-  &:focus {
+  &.active {
     color: teal;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     text-decoration: underline;
   }
 `;
