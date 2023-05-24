@@ -1,6 +1,14 @@
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {MovieWrap, MoreInfoWrap, StyledLink } from './MovieCard.styled';
+import {
+  MovieWrap,
+  MovieInfoWrap,
+  MovieTitle,
+  MovieSubTitle,
+  MovieText,
+  MoreInfoWrap,
+  StyledLink,
+} from './MovieCard.styled';
 
 const MovieCard = ({ movie }) => {
   const { title, release_date, poster_path, vote_average, overview, genres } =
@@ -24,24 +32,26 @@ const MovieCard = ({ movie }) => {
     <>
       <MovieWrap>
         <img src={posterUrl} alt={`${title}`} />
-        <div>
-          <h2>
+        <MovieInfoWrap>
+          <MovieTitle>
             {title ?? 'Unknown'} ({releaseYear})
-          </h2>
-          <p>User Score: {userScore}</p>
-          <h3>Overview</h3>
-          <p>{overview}</p>
+          </MovieTitle>
+          <MovieText>User Score: {userScore}</MovieText>
+          <MovieSubTitle>Overview</MovieSubTitle>
+          <MovieText>{overview}</MovieText>
           {genres && genres.length > 0 && (
             <>
-              <h3>Genres</h3>
-              <p>{genres.map(genre => genre.name).join(', ')}</p>
+              <MovieSubTitle>Genres</MovieSubTitle>
+              <MovieText>
+                {genres.map(genre => genre.name).join(', ')}
+              </MovieText>
             </>
           )}
-        </div>
+        </MovieInfoWrap>
       </MovieWrap>
 
       <MoreInfoWrap>
-        <h3>Additional information</h3>
+        <MovieSubTitle>Additional information</MovieSubTitle>
         <ul>
           <li>
             <StyledLink
