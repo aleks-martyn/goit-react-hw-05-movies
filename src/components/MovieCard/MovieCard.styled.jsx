@@ -7,6 +7,24 @@ export const MovieWrap = styled.div`
   margin-top: 20px;
 `;
 
+export const MovieInfoWrap = styled.div`
+  padding-top: 20px;
+`;
+
+export const MovieTitle = styled.h2`
+  margin-bottom: 20px;
+`;
+
+export const MovieSubTitle = styled.h3`
+  margin-bottom: 20px;
+`;
+
+export const MovieText = styled.p`
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+`;
+
 export const MoreInfoWrap = styled.div`
   margin-top: 20px;
   padding-top: 20px;
@@ -20,7 +38,7 @@ export const StyledLink = styled(Link)`
   margin-right: 5px;
   padding: 5px 15px;
   border: 1px solid #0d57aa;
-  border-radius: 6px;
+  border-radius: 3px;
   background-color: #b5d1f2;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
@@ -30,7 +48,7 @@ export const StyledLink = styled(Link)`
   &:hover,
   &:focus {
     background-color: #0d57aa;
-    color: #ffffff;
+    color: #fff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   }
 `;
