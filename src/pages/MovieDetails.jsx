@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
 import { fetchMovieById } from 'services/api';
 import MovieCard from 'components/MovieCard/MovieCard';
+import { Container, Button } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -23,13 +24,13 @@ const MovieDetails = () => {
 
   return (
     <main>
-      <div>
+      <Container>
         <Link to={location?.state?.from ?? '/'}>
-          <button type='button'>Go back</button>
+          <Button type='button'>Go back</Button>
         </Link>
 
         <MovieCard movie={selectedMovie} />
-      </div>
+      </Container>
     </main>
   );
 };
