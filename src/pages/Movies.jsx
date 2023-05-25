@@ -22,14 +22,13 @@ const Movies = () => {
       try {
         const { results } = await fetchMovieByName(query);
 
-        if (results.length === 0) {
+        if (results && results.length === 0) {
           setMovies([]);
         } else {
           setMovies(results);
         }
       } catch (error) {
         console.log(error);
-        setMovies([]);
       }
     };
 
@@ -38,21 +37,26 @@ const Movies = () => {
 
   const handleSubmit = query => {
     setSearchParams({ query });
+    setMovies([]);
   };
 
   return (
     <main>
       <StyledSection>
         <SearchMovies onSubmit={handleSubmit} />
-        <List>
-          {movies && movies.map(({ id, title }) => (
-            <ListItem key={id}>
-              <StyledLink to={`/movies/${id}`} state={{ from: location }}>
-                {title}
-              </StyledLink>
-            </ListItem>
-          ))}
-        </List>
+        {movies && movies.length > 0 ? (
+          <List>
+            {movies.map(({ id, title }) => (
+              <ListItem key={id}>
+                <StyledLink to={`/movies/${id}`} state={{ from: location }}>
+                  {title}
+                </StyledLink>
+              </ListItem>
+            ))}
+          </List>
+        ) : (
+          <h4>Nothing was found for this query.</h4>
+        )}
       </StyledSection>
     </main>
   );
