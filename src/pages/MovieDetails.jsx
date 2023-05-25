@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Outlet, useLocation, Link } from 'react-router-dom';
 import { fetchMovieById } from 'services/api';
 import MovieCard from 'components/MovieCard/MovieCard';
-import { Container, Button } from './MovieDetails.styled';
+import { Container, Button, LeftArrow } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -26,7 +26,10 @@ const MovieDetails = () => {
     <main>
       <Container>
         <Link to={location?.state?.from ?? '/'}>
-          <Button type="button">Go back</Button>
+          <Button type="button">
+            <LeftArrow />
+            Go back
+          </Button>
         </Link>
 
         <MovieCard movie={selectedMovie} />
