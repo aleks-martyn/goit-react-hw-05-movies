@@ -32,3 +32,8 @@ export const CastInfo = styled.div`
 export const CastName = styled.h4`
   margin-bottom: 10px;
 `;
+
+export const NoCastText = styled.p`
+  margin-top: 20px;
+  text-align: center;
+`;
