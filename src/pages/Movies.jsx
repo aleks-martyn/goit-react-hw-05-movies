@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
+import Spinner from 'components/Loader/Loader';
 import { fetchMovieByName } from 'services/api';
 import SearchMovies from 'components/SearchMovies/SearchMovies';
 import {
@@ -7,28 +8,28 @@ import {
   List,
   ListItem,
   StyledLink,
+  NotFoundText,
 } from 'components/MovieList/MovieList.styled';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [status, setStatus] = useState('idle');
   const location = useLocation();
 
   useEffect(() => {
     const query = searchParams.get('query') ?? '';
     if (!query) return;
 
+    setStatus('pending');
     const getMovie = async () => {
       try {
         const { results } = await fetchMovieByName(query);
-
-        if (results && results.length === 0) {
-          setMovies([]);
-        } else {
-          setMovies(results);
-        }
+        setMovies(results);
+        setStatus('resolved');
       } catch (error) {
         console.log(error);
+        setStatus('rejected');
       }
     };
 
@@ -38,14 +39,20 @@ const Movies = () => {
   const handleSubmit = query => {
     setSearchParams({ query });
     setMovies([]);
+    setStatus('idle');
   };
 
   return (
     <main>
       <StyledSection>
         <SearchMovies onSubmit={handleSubmit} />
-        {movies && movies.length > 0 ? (
+        {status === 'pending' && <Spinner />}
+        {status === 'rejected' && <h4>{'An error occurred!'}</h4>}
+        {status === 'resolved' && (
           <List>
+            {movies && movies.length === 0 && (
+              <NotFoundText>Nothing was found for this query.</NotFoundText>
+            )}
             {movies.map(({ id, title }) => (
               <ListItem key={id}>
                 <StyledLink to={`/movies/${id}`} state={{ from: location }}>
@@ -54,8 +61,6 @@ const Movies = () => {
               </ListItem>
             ))}
           </List>
-        ) : (
-          <h4>Nothing was found for this query.</h4>
         )}
       </StyledSection>
     </main>
