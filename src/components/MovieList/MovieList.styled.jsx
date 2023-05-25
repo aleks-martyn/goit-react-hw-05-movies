@@ -38,3 +38,7 @@ export const StyledLink = styled(Link)`
     border-bottom: 2px solid blue;
   }
 `;
+
+export const NotFoundText = styled.h4`
+  color: #000;
+`;
