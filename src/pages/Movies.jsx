@@ -2,6 +2,12 @@ import { useState, useEffect } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
 import { fetchMovieByName } from 'services/api';
 import SearchMovies from 'components/SearchMovies/SearchMovies';
+import {
+  StyledSection,
+  List,
+  ListItem,
+  StyledLink,
+} from 'components/MovieList/MovieList.styled';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -34,7 +40,22 @@ const Movies = () => {
     setSearchParams({ query });
   };
 
-  return <div>Movies</div>;
+  return (
+    <main>
+      <StyledSection>
+        <SearchMovies onSubmit={handleSubmit} />
+        <List>
+          {movies && movies.map(({ id, title }) => (
+            <ListItem key={id}>
+              <StyledLink to={`/movies/${id}`} state={{ from: location }}>
+                {title}
+              </StyledLink>
+            </ListItem>
+          ))}
+        </List>
+      </StyledSection>
+    </main>
+  );
 };
 
 export default Movies;
