@@ -1,15 +1,21 @@
 import PropTypes from 'prop-types';
-import { StyledSection, SectionTitle, List, ListItem, StyledLink } from './MovieList.styled';
+import {
+  StyledSection,
+  SectionTitle,
+  List,
+  ListItem,
+  StyledLink,
+} from './MovieList.styled';
 
 const MovieList = ({ trendingMovies }) => (
   <StyledSection>
     <SectionTitle>Trending today</SectionTitle>
     <List>
       {trendingMovies &&
-        trendingMovies.map(trendingMovie => (
-          <ListItem key={trendingMovie.id}>
-            <StyledLink to={`/movies/${trendingMovie.id}`}>
-              {trendingMovie.title}
+        trendingMovies.map(({id, title}) => (
+          <ListItem key={id}>
+            <StyledLink to={`/movies/${id}`}>
+              {title}
             </StyledLink>
           </ListItem>
         ))}
