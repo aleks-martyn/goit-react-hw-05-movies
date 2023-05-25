@@ -22,5 +22,13 @@ export const CastList = styled.ul`
 export const CastListItem = styled.li`
   width: calc((100% - 4 * 40px) / 5);
   height: 400px;
-  word-break: break-word;
+  word-wrap: break-word;
+`;
+
+export const CastInfo = styled.div`
+  margin-top: 20px;
+`;
+
+export const CastName = styled.h4`
+  margin-bottom: 10px;
 `;
