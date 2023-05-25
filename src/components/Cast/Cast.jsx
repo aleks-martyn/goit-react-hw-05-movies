@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCast } from 'services/api';
-import { Wrap, CastTitle, CastList, CastListItem } from './Cast.styled';
+import { Wrap, CastTitle, CastList, CastListItem, CastInfo, CastName } from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -37,10 +37,10 @@ const Cast = () => {
                 alt={`${name} profile`}
               />
             )}
-            <div>
-              <h3>{name}</h3>
+            <CastInfo>
+              <CastName>{name}</CastName>
               <p>Character: {character}</p>
-            </div>
+            </CastInfo>
           </CastListItem>
         ))}
       </CastList>
