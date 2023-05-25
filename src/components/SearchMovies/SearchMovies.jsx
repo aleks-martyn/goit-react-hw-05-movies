@@ -15,10 +15,10 @@ const SearchMovies = ({ onSubmit }) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Input name="query" type="text" placeholder="Search movies" />
-      <Button type="submit">Search</Button>
-    </Form>
+    <form onSubmit={handleSubmit}>
+      <input name="query" type="text" placeholder="Search movies" />
+      <button type="submit">Search</button>
+    </form>
   );
 };
 
