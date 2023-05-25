@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { BsArrowLeftShort } from 'react-icons/bs';
 
 export const Container = styled.div`
   padding: 20px 35px;
@@ -18,4 +19,10 @@ export const Button = styled.button`
     background-color: #0d57aa;
     color: #fff;
   }
+`;
+
+export const LeftArrow = styled(BsArrowLeftShort)`
+  width: 25px;
+  height: 25px;
+  display: inline-block;
 `;
