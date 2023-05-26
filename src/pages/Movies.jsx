@@ -14,6 +14,7 @@ import {
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [error, setError] = useState(null);
   const [status, setStatus] = useState('idle');
   const location = useLocation();
 
@@ -28,7 +29,7 @@ const Movies = () => {
         setMovies(results);
         setStatus('resolved');
       } catch (error) {
-        console.log(error);
+        setError(error);;
         setStatus('rejected');
       }
     };
@@ -39,6 +40,7 @@ const Movies = () => {
   const handleSubmit = query => {
     setSearchParams({ query });
     setMovies([]);
+    setError(null);
     setStatus('idle');
   };
 
@@ -47,7 +49,7 @@ const Movies = () => {
       <StyledSection>
         <SearchMovies onSubmit={handleSubmit} />
         {status === 'pending' && <Spinner />}
-        {status === 'rejected' && <h4>{'An error occurred!'}</h4>}
+        {status === 'rejected' && <h3>{error.message}</h3>}
         {status === 'resolved' && (
           <List>
             {movies && movies.length === 0 && (
