@@ -47,21 +47,18 @@ export const ListItem = styled.li`
 `;
 
 export const StyledLink = styled(Link)`
-  font-size: 16px;
   margin-right: 5px;
-  padding: 5px 15px;
-  border: 1px solid #0d57aa;
+  padding: 6px 15px;
+  height: 30px;
+  border: 0;
   border-radius: 3px;
-  background-color: #b5d1f2;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease-in-out;
-  text-decoration: none;
-  color: #0d57aa;
+  color: #fff;
+  background-color: #2196f3;
+  font-size: 16px;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    background-color: #0d57aa;
-    color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    background-color: #188ce8;
   }
 `;
