@@ -1,9 +1,9 @@
 import { Suspense, useState, useEffect } from 'react';
 import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
 import { fetchMovieById } from 'services/api';
-import MovieCard from 'components/MovieCard/MovieCard';
+import MovieCard from 'components/MovieCard';
 import { Wrap, Button, LeftArrow } from './MovieDetails.styled';
-import Spinner from 'components/Loader/Loader';
+import Spinner from 'components/Loader';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
