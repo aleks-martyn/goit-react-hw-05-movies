@@ -47,9 +47,8 @@ export const ListItem = styled.li`
 `;
 
 export const StyledLink = styled(Link)`
-  margin-right: 5px;
+  margin: 0;
   padding: 6px 15px;
-  height: 30px;
   border: 0;
   border-radius: 3px;
   color: #fff;
