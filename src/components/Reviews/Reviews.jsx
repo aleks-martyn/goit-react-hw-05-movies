@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieReviews } from 'services/api';
-import Spinner from 'components/Loader/Loader';
+import Spinner from 'components/Loader';
 import {
   Wrap,
   ReviewTitle,
