@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
-import { useParams, Outlet, useLocation, Link } from 'react-router-dom';
+import { Suspense, useState, useEffect } from 'react';
+import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
 import { fetchMovieById } from 'services/api';
 import MovieCard from 'components/MovieCard/MovieCard';
-import { Container, Button, LeftArrow } from './MovieDetails.styled';
+import { Wrap, Button, LeftArrow } from './MovieDetails.styled';
+import Spinner from 'components/Loader/Loader';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -24,7 +25,7 @@ const MovieDetails = () => {
 
   return (
     <main>
-      <Container>
+      <Wrap>
         <Link to={location?.state?.from ?? '/'}>
           <Button type="button">
             <LeftArrow />
@@ -33,8 +34,10 @@ const MovieDetails = () => {
         </Link>
 
         <MovieCard movie={selectedMovie} />
-        <Outlet />
-      </Container>
+        <Suspense fallback={<Spinner />}>
+          <Outlet />
+        </Suspense>
+      </Wrap>
     </main>
   );
 };
