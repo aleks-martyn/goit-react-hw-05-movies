@@ -8,16 +8,18 @@ export const Wrap = styled.div`
 export const Button = styled.button`
   display: flex;
   align-items: center;
-  font-size: 14px;
-  border: 1px solid #0d57aa;
+  padding: 6px 15px;
+  height: 30px;
+  border: 0;
   border-radius: 3px;
-  background-color: #b5d1f2;
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  font-size: 16px;
+  color: #fff;
+  background-color: #2196f3;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    background-color: #0d57aa;
-    color: #fff;
+    background-color: #188ce8;
   }
 `;
 
