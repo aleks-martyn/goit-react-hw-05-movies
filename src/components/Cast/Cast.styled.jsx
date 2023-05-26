@@ -21,7 +21,7 @@ export const CastList = styled.ul`
 
 export const CastListItem = styled.li`
   width: calc((100% - 4 * 40px) / 5);
-  height: 400px;
+  height: 350px;
   word-wrap: break-word;
 `;
 
