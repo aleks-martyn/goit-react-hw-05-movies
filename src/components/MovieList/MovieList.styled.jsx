@@ -18,7 +18,7 @@ export const SectionTitle = styled.h2`
 
 export const List = styled.ul`
   list-style: disc;
-  color: teal;
+  color: #0c6aad;
 `;
 
 export const ListItem = styled.li`
@@ -29,13 +29,14 @@ export const ListItem = styled.li`
 
 export const StyledLink = styled(Link)`
   font-size: 20px;
-  color: teal;
-  transition: color 0.2s ease-in-out, border-bottom 0.2s ease-in-out;
+  color: #0c6aad;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-bottom 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
     color: blue;
-    border-bottom: 2px solid blue;
+    border-bottom: 1px solid blue;
   }
 `;
 
