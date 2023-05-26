@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { BsArrowLeftShort } from 'react-icons/bs';
 
-export const Container = styled.div`
+export const Wrap = styled.div`
   padding: 20px 35px;
 `;
 
