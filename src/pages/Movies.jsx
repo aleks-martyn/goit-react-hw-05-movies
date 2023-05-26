@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
-import Spinner from 'components/Loader/Loader';
+import Spinner from 'components/Loader';
 import { fetchMovieByName } from 'services/api';
-import SearchMovies from 'components/SearchMovies/SearchMovies';
+import SearchMovies from 'components/SearchMovies';
 import {
   StyledSection,
   List,
