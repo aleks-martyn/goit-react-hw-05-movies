@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <>
       {status === 'pending' && <Spinner />}
-      {status === 'rejected' && <h1>{error.message}</h1>}
+      {status === 'rejected' && <h3>{error.message}</h3>}
       {status === 'resolved' && <MovieList trendingMovies={trendingMovies} />}
     </>
   );
