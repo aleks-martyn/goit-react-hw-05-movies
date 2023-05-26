@@ -33,7 +33,7 @@ const MovieDetails = () => {
       {status === 'rejected' && <h3>{error.message}</h3>}
       {status === 'resolved' && (
         <Wrap>
-          <Link to={location?.state?.from ?? '/'}>
+          <Link to={location.state?.from ?? '/'}>
             <Button type="button">
               <LeftArrow />
               Go back
