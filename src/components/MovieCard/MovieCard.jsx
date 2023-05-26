@@ -1,4 +1,3 @@
-import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   MovieWrap,
@@ -16,8 +15,6 @@ const MovieCard = ({ movie }) => {
   const { title, release_date, poster_path, vote_average, overview, genres } =
     movie;
 
-  const location = useLocation();
-
   const releaseDate = new Date(release_date);
   const releaseYear = isNaN(releaseDate)
     ? 'Unknown'
@@ -34,7 +31,7 @@ const MovieCard = ({ movie }) => {
   return (
     <>
       <MovieWrap>
-        <img src={posterUrl} alt={`${title}`} />
+        <img src={posterUrl} alt={title} />
         <MovieInfoWrap>
           <MovieTitle>
             {title ?? 'Unknown'} ({releaseYear})
@@ -45,9 +42,7 @@ const MovieCard = ({ movie }) => {
           {genres && genres.length > 0 && (
             <>
               <MovieSubTitle>Genres</MovieSubTitle>
-              <MovieText>
-                {genres.map(genre => genre.name).join(', ')}
-              </MovieText>
+              <MovieText>{genres.map(({ name }) => name).join(', ')}</MovieText>
             </>
           )}
         </MovieInfoWrap>
@@ -57,20 +52,10 @@ const MovieCard = ({ movie }) => {
         <MovieSubTitle>Additional information</MovieSubTitle>
         <LinksList>
           <ListItem>
-            <StyledLink
-              to="cast"
-              state={{ from: location?.state?.from ?? '/' }}
-            >
-              Cast
-            </StyledLink>
+            <StyledLink to="cast">Cast</StyledLink>
           </ListItem>
           <ListItem>
-            <StyledLink
-              to="reviews"
-              state={{ from: location?.state?.from ?? '/' }}
-            >
-              Reviews
-            </StyledLink>
+            <StyledLink to="reviews">Reviews</StyledLink>
           </ListItem>
         </LinksList>
       </MoreInfoWrap>
