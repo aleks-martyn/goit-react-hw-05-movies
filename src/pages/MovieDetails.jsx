@@ -9,14 +9,18 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
   const [selectedMovie, setSelectedMovie] = useState({});
+  const [status, setStatus] = useState('pending');
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchSelectedMovie = async movieId => {
       try {
         const movieData = await fetchMovieById(movieId);
         setSelectedMovie(movieData);
+        setStatus('resolved');
       } catch (error) {
-        console.log(error);
+        setError(error);
+        setStatus('rejected');
       }
     };
 
@@ -25,19 +29,23 @@ const MovieDetails = () => {
 
   return (
     <main>
-      <Wrap>
-        <Link to={location?.state?.from ?? '/'}>
-          <Button type="button">
-            <LeftArrow />
-            Go back
-          </Button>
-        </Link>
+      {status === 'pending' && <Spinner />}
+      {status === 'rejected' && <h3>{error.message}</h3>}
+      {status === 'resolved' && (
+        <Wrap>
+          <Link to={location?.state?.from ?? '/'}>
+            <Button type="button">
+              <LeftArrow />
+              Go back
+            </Button>
+          </Link>
 
-        <MovieCard movie={selectedMovie} />
-        <Suspense fallback={<Spinner />}>
-          <Outlet />
-        </Suspense>
-      </Wrap>
+          <MovieCard movie={selectedMovie} />
+          <Suspense fallback={<Spinner />}>
+            <Outlet />
+          </Suspense>
+        </Wrap>
+      )}
     </main>
   );
 };
