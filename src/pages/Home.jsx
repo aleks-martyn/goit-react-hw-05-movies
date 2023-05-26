@@ -11,7 +11,6 @@ const Home = () => {
   useEffect(() => {
     const fetchTrendingMovies = async () => {
       try {
-        setStatus('pending');
         const { results } = await fetchTrendMovies();
         setTrendingMovies(results);
         setStatus('resolved');
