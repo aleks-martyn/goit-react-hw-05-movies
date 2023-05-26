@@ -14,17 +14,17 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  background-color: #b5d1f2;
-  border: 1px solid #0d57aa;
+  padding: 6px 15px;
+  color: #fff;
+  background-color: #2196f3;
+  border: 0;
   border-radius: 3px;
-  padding: 8px 18px;
+
   font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    background-color: #0d57aa;
-    color: #ffffff;
+    background-color: #188ce8;
   }
 `;
