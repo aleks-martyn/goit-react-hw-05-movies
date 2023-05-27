@@ -1,10 +1,5 @@
 import styled from '@emotion/styled';
 
-export const Form = styled.form`
-  margin-top: 20px;
-  margin-bottom: 20px;
-`;
-
 export const Input = styled.input`
   border: 1px solid #ccc;
   border-radius: 3px;
