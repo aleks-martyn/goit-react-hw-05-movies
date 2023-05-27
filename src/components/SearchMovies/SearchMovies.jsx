@@ -4,15 +4,16 @@ import { Form, Input, Button } from './SearchMovies.styled';
 const SearchMovies = ({ onSubmit }) => {
   const handleSubmit = event => {
     event.preventDefault();
-
-    const query = event.target.elements.query.value;
+    
+    const form = event.currentTarget;
+    const query = form.elements.query.value;
 
     if (query.trim() === '') {
       alert('Enter a search query!');
       return;
     }
     onSubmit(query);
-    event.target.reset();
+    form.reset();
   };
 
   return (
