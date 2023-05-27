@@ -7,7 +7,9 @@ const Layout = () => (
   <>
     <Header />
     <Suspense fallback={<Spinner />}>
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </Suspense>
   </>
 );
