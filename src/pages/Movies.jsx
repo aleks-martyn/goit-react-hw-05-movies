@@ -23,7 +23,7 @@ const Movies = () => {
     if (!query) return;
 
     setStatus('pending');
-    const getMovie = async () => {
+    const getMovie = async query => {
       try {
         const { results } = await fetchMovieByName(query);
         setMovies(results);
@@ -34,7 +34,7 @@ const Movies = () => {
       }
     };
 
-    getMovie();
+    getMovie(query);
   }, [searchParams]);
 
   const handleSubmit = query => {
