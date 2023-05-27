@@ -2,7 +2,7 @@ import { Suspense, useState, useEffect } from 'react';
 import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
 import { fetchMovieById } from 'services/api';
 import MovieCard from 'components/MovieCard';
-import { Wrap, Button, LeftArrow } from './MovieDetails.styled';
+import { StyledSection, Button, LeftArrow } from './MovieDetails.styled';
 import Spinner from 'components/Loader';
 
 const MovieDetails = () => {
@@ -28,11 +28,11 @@ const MovieDetails = () => {
   }, [movieId]);
 
   return (
-    <main>
+    <>
       {status === 'pending' && <Spinner />}
       {status === 'rejected' && <h3>{error.message}</h3>}
       {status === 'resolved' && (
-        <Wrap>
+        <StyledSection>
           <Link to={location.state?.from ?? '/'}>
             <Button type="button">
               <LeftArrow />
@@ -44,9 +44,9 @@ const MovieDetails = () => {
           <Suspense fallback={<Spinner />}>
             <Outlet />
           </Suspense>
-        </Wrap>
+        </StyledSection>
       )}
-    </main>
+    </>
   );
 };
 
