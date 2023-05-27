@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Form, Input, Button } from './SearchMovies.styled';
+import { Input, Button } from './SearchMovies.styled';
 
 const SearchMovies = ({ onSubmit }) => {
   const handleSubmit = event => {
@@ -17,10 +17,10 @@ const SearchMovies = ({ onSubmit }) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <Input name="query" type="text" placeholder="Search movies" />
       <Button type="submit">Search</Button>
-    </Form>
+    </form>
   );
 };
 
