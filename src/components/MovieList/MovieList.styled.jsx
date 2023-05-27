@@ -2,14 +2,12 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 export const StyledSection = styled.section`
+  padding-top: 30px;
   padding-right: 40px;
   padding-left: 40px;
 `;
 
 export const SectionTitle = styled.h2`
-  margin-top: 30px;
-  margin-bottom: 30px;
-  padding-left: 5px;
   font-size: 30px;
   font-weight: 600;
   text-align: center;
@@ -17,6 +15,7 @@ export const SectionTitle = styled.h2`
 `;
 
 export const List = styled.ul`
+  padding-top: 30px;
   list-style: disc;
   color: #0c6aad;
 `;
