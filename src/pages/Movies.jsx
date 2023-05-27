@@ -29,7 +29,7 @@ const Movies = () => {
         setMovies(results);
         setStatus('resolved');
       } catch (error) {
-        setError(error);;
+        setError(error);
         setStatus('rejected');
       }
     };
@@ -45,27 +45,25 @@ const Movies = () => {
   };
 
   return (
-    <main>
-      <StyledSection>
-        <SearchMovies onSubmit={handleSubmit} />
-        {status === 'pending' && <Spinner />}
-        {status === 'rejected' && <h3>{error.message}</h3>}
-        {status === 'resolved' && (
-          <List>
-            {movies && movies.length === 0 && (
-              <NotFoundText>Nothing was found for this query.</NotFoundText>
-            )}
-            {movies.map(({ id, title }) => (
-              <ListItem key={id}>
-                <StyledLink to={`/movies/${id}`} state={{ from: location }}>
-                  {title}
-                </StyledLink>
-              </ListItem>
-            ))}
-          </List>
-        )}
-      </StyledSection>
-    </main>
+    <StyledSection>
+      <SearchMovies onSubmit={handleSubmit} />
+      {status === 'pending' && <Spinner />}
+      {status === 'rejected' && <h3>{error.message}</h3>}
+      {status === 'resolved' && (
+        <List>
+          {movies && movies.length === 0 && (
+            <NotFoundText>Nothing was found for this query.</NotFoundText>
+          )}
+          {movies.map(({ id, title }) => (
+            <ListItem key={id}>
+              <StyledLink to={`/movies/${id}`} state={{ from: location }}>
+                {title}
+              </StyledLink>
+            </ListItem>
+          ))}
+        </List>
+      )}
+    </StyledSection>
   );
 };
 
