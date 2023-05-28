@@ -56,7 +56,7 @@ const Movies = () => {
           )}
           {movies.map(({ id, title }) => (
             <ListItem key={id}>
-              <StyledLink to={`/movies/${id}`} state={{ from: location }}>
+              <StyledLink to={`${id}`} state={{ from: location }}>
                 {title}
               </StyledLink>
             </ListItem>
