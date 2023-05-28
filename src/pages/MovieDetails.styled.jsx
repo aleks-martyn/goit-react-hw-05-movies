@@ -1,15 +1,15 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 import { BsArrowLeftShort } from 'react-icons/bs';
 
 export const StyledSection = styled.section`
   padding: 20px 35px;
 `;
 
-export const Button = styled.button`
-  display: flex;
+export const StyledLink = styled(Link)`
+  display: inline-flex;
   align-items: center;
-  padding: 6px 15px;
-  height: 30px;
+  padding: 3px 10px;
   border: 0;
   border-radius: 3px;
   font-size: 16px;
