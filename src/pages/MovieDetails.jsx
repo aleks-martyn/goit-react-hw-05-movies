@@ -1,4 +1,4 @@
-import { Suspense, useState, useEffect } from 'react';
+import { Suspense, useState, useEffect, useRef } from 'react';
 import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { fetchMovieById } from 'services/api';
 import MovieCard from 'components/MovieCard';
@@ -8,6 +8,7 @@ import Spinner from 'components/Loader';
 const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
+  const backLinkLocationRef = useRef(location.state?.from ?? '/');
   const [selectedMovie, setSelectedMovie] = useState({});
   const [status, setStatus] = useState('pending');
   const [error, setError] = useState(null);
@@ -33,7 +34,7 @@ const MovieDetails = () => {
       {status === 'rejected' && <h3>{error.message}</h3>}
       {status === 'resolved' && (
         <StyledSection>
-          <StyledLink to={location.state?.from ?? '/'}>
+          <StyledLink to={backLinkLocationRef.current}>
             <LeftArrow />
             Go back
           </StyledLink>
